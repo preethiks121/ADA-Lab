@@ -45,10 +45,10 @@ int main()
         printf("Enter the size of the array:\n");
         scanf("%d",&n);
         arr = (int*)malloc(n*sizeof(int));
-        srand(time(0));
+        *(arr+0) = rand()%100;
         for(i=0;i<n;i++)
         {
-                *(arr+i) = rand()%10000;
+                *(arr+i) = *(arr+i-1)+3;
         }
 
         fprintf(f1,"%d %d\n",n,binary_search(arr,n,arr[(n-1)/2]));

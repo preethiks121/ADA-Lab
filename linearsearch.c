@@ -2,14 +2,15 @@
 #include<time.h>
 #include<stdlib.h>
 FILE *fp3, *fp1, *fp2;
+int count=0;
 int linear(int *a, int n, int key)
 {
 	int i=0;
 	while(i<n && a[i] != key)
-		i++;
+	{ i++; count++;}
 	if(i<n)
 		printf("%d found at position %d\n",key,i );
-	return i+1;
+	return count;
 }
 int main()
 {
@@ -26,18 +27,16 @@ int main()
 		
 		printf("Enter the input size:\n");
 		scanf("%d",&size);
-		fprintf(fp1, "%d ",size );
-		fprintf(fp2, "%d ",size );
-		fprintf(fp3, "%d ",size );
+		
 
 		a = (int*)malloc(size*sizeof(int));
 		srand(time(0));
 		for(i=0;i<size;i++)
 			*(a+i) = rand()%10005;
 
-		fprintf(fp1, "%d\n",linear(a,size,*a) );
-		fprintf(fp2, "%d\n",linear(a,size,*(a+size-1)) );
-		fprintf(fp3, "%d\n",linear(a,size,*(a+rand()%size)) );
+		fprintf(fp1, "%d %d\n",size,linear(a,size,*a) );
+		fprintf(fp2, "%d %d\n",size,linear(a,size,*(a+size-1)) );
+		fprintf(fp3, "%d %d\n",size,linear(a,size,*(a+rand()%size)) );
 
 	}
 	return 0;

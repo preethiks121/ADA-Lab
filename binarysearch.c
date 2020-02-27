@@ -5,13 +5,13 @@
 int binary_search(int *a,int n,int key)
 {
         int l=0,u=n-1,m,count=0;
-        int res;
+        
         while(l<=u)
         {
                 m = (l + u)/2;
-                res = *(a+m) == key;
+               
                 count++;
-                if(res)
+                if(*(a+m) == key)
                 {
                         return count;
                 }

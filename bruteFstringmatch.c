@@ -16,10 +16,10 @@ for( i=0;i<=n-m;i++)
  {
    j++;
    count++; 
- }
+ }count++;
  if(j==m)
  return i;
-count++;
+
 }
 return -1;
 }
